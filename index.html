@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Antara — Yoga &amp; Stillness</title>
+<meta name="description" content="An intimate yoga studio for unhurried practice. Small classes, considered teaching." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo" id="navLogo">Antara</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#classes">Classes</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Membership</a>
+        <a href="#contact" class="btn" style="padding:11px 26px">Book</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <a id="top"></a>
+  <div class="bg" id="heroBg"></div>
+  <div class="wrap">
+    <p class="kicker" id="heroKicker"></p>
+    <h1 id="heroHead"></h1>
+    <p id="heroSub"></p>
+    <a class="btn" id="heroBtn" target="_blank" rel="noopener"></a>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy center">
+  <div class="wrap">
+    <p class="kicker">Our way</p>
+    <p class="lede" id="philIntro" style="font-size:1.35rem;color:var(--ink);max-width:680px"></p>
+    <div class="pillars" id="pillars"></div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section id="classes">
+  <div class="wrap">
+    <p class="kicker center">What we teach</p>
+    <h2 class="center">Practices for every body</h2>
+    <div class="grid g4" id="classGrid" style="margin-top:56px"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="gallery toned" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" style="background:var(--paper)">
+  <div class="wrap">
+    <p class="kicker center">Weekly rhythm</p>
+    <h2 class="center">When to come</h2>
+    <div class="sched" id="schedList"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="photo toned" id="instPhoto"></div>
+      <div>
+        <p class="kicker">Your teacher</p>
+        <h2 id="instName"></h2>
+        <p class="role" id="instRole"></p>
+        <p class="bio" id="instBio"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--paper)">
+  <div class="wrap">
+    <p class="kicker center">In their words</p>
+    <h2 class="center">From our students</h2>
+    <div class="quotes" id="quoteGrid"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <p class="kicker center">Membership</p>
+    <h2 class="center">Considered, transparent pricing</h2>
+    <div class="prices" id="priceGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--paper)">
+  <div class="wrap">
+    <p class="kicker center">Good to know</p>
+    <h2 class="center">Questions, answered</h2>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact" style="padding:0">
+  <div class="cta">
+    <p class="kicker" style="color:rgba(245,241,234,.8)">Begin</p>
+    <h2>Your mat is waiting</h2>
+    <p>Send us a message on WhatsApp to book your first class. We will hold a place and answer anything you wish to ask.</p>
+    <a class="btn" id="ctaBtn" target="_blank" rel="noopener"></a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" style="padding-top:72px;padding-bottom:72px">
+  <div class="wrap">
+    <p class="kicker">Find us</p>
+    <div class="row" id="contactRow"></div>
+    <div id="upiWrap"></div>
+    <div id="mapWrap"></div>
+  </div>
+</section>
+
+<!-- floating WhatsApp join button (built by app.js) -->
+<a id="floatJoin" target="_blank" rel="noopener" aria-label="Join us on WhatsApp"></a>
+
+<footer>
+  <a href="#top" class="logo" id="footLogo">Antara</a>
+  <div id="footAddr"></div>
+  <div class="small">© 2026 · All rights reserved</div>
+</footer>
+
+<!-- content first, then the renderer -->
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

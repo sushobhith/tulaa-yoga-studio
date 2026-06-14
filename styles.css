@@ -1,0 +1,202 @@
+/* =========================================================
+   Antara — design layer. You do not need to edit this file.
+   To change words / prices / photos, open content.js
+   ========================================================= */
+
+:root{
+  --ivory:#F5F1EA;
+  --paper:#FBF8F3;
+  --sand:#EDE7DB;
+  --ink:#262420;
+  --muted:#6F6857;
+  --olive:#6E7257;
+  --olive-deep:#565a43;
+  --brass:#A88B5C;
+  --line:#E3DACB;
+  --shadow:0 24px 60px rgba(60,50,30,.10);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  color:var(--ink);
+  background:var(--ivory);
+  line-height:1.7;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---- Typography ---- */
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1;letter-spacing:.005em}
+h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:500}
+h2{font-size:clamp(2rem,4.5vw,3.1rem);margin-bottom:.35em}
+h3{font-size:1.5rem}
+p{font-weight:300}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+section{padding:110px 0}
+.kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);font-weight:400;margin-bottom:22px}
+.lede{color:var(--muted);font-size:1.1rem;max-width:600px;font-weight:300}
+.center{text-align:center}
+.center .lede{margin-left:auto;margin-right:auto}
+
+/* ---- Buttons ---- */
+.btn{
+  display:inline-block;background:var(--olive);color:var(--ivory);
+  padding:16px 38px;border-radius:2px;font-family:'Jost',sans-serif;
+  font-weight:400;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  transition:background .25s,transform .25s;cursor:pointer;border:none;
+}
+.btn:hover{background:var(--olive-deep);transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-line:hover{background:#fff;border-color:var(--olive);color:var(--olive-deep)}
+
+/* ---- Photo treatment: quiet, editorial, cohesive ---- */
+.toned img{filter:grayscale(.28) sepia(.10) brightness(1.02) contrast(.97)}
+
+/* ---- Header / nav ---- */
+header{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;letter-spacing:.04em}
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.btn{color:var(--ivory)}
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink)}
+@media(max-width:820px){
+  .nav-links{position:fixed;inset:78px 0 auto 0;flex-direction:column;background:var(--ivory);padding:30px;gap:24px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
+
+/* ---- Hero ---- */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;text-align:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{filter:grayscale(.35) brightness(.78)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,36,32,.28),rgba(38,36,32,.46));z-index:1}
+.hero .wrap{position:relative;z-index:2;color:var(--ivory)}
+.hero .kicker{color:rgba(245,241,234,.85)}
+.hero h1{max-width:16ch;margin:0 auto .4em;color:var(--ivory)}
+.hero p{max-width:540px;margin:0 auto 38px;color:rgba(245,241,234,.9);font-size:1.12rem}
+/* fallback if no hero image yet */
+.hero.noimg{background:linear-gradient(160deg,#3a3d30,#565a43 60%,#6b6450)}
+
+/* ---- Philosophy ---- */
+.philosophy{background:var(--paper)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
+.pillar{text-align:center}
+.pillar .num{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--brass);letter-spacing:.2em}
+.pillar h3{font-size:1.9rem;margin:14px 0 12px}
+.pillar p{color:var(--muted);font-size:.98rem}
+@media(max-width:720px){.pillars{grid-template-columns:1fr;gap:44px}}
+
+/* ---- Grids ---- */
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.cell{background:var(--ivory);padding:42px 34px}
+.cell h3{margin-bottom:12px}
+.cell p{color:var(--muted);font-size:.96rem}
+@media(max-width:820px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.g4,.g2{grid-template-columns:1fr}}
+
+/* ---- Gallery ---- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery img{aspect-ratio:4/5;border-radius:2px}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- About / teacher ---- */
+.about{display:grid;grid-template-columns:.85fr 1fr;gap:64px;align-items:center}
+.about .photo{aspect-ratio:4/5;border-radius:2px;overflow:hidden;box-shadow:var(--shadow)}
+.about .role{color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;margin-bottom:18px}
+.about p.bio{color:var(--muted);font-size:1.04rem}
+@media(max-width:780px){.about{grid-template-columns:1fr;gap:36px}}
+
+/* ---- Schedule ---- */
+.sched{max-width:720px;margin:64px auto 0;background:var(--ivory);border:1px solid var(--line)}
+.sched .row{display:grid;grid-template-columns:140px 1fr;padding:20px 28px;border-bottom:1px solid var(--line)}
+.sched .row:last-child{border-bottom:none}
+.sched .day{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--olive-deep)}
+.sched .slots{color:var(--muted);font-size:.95rem;align-self:center}
+@media(max-width:520px){.sched .row{grid-template-columns:1fr;gap:4px}}
+
+/* ---- Testimonials ---- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px}
+.quote{padding:8px 4px}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;line-height:1.4;color:var(--ink);margin-bottom:18px}
+.quote .who{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+@media(max-width:780px){.quotes{grid-template-columns:1fr;gap:44px}}
+
+/* ---- Pricing ---- */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.price{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:44px 34px;display:flex;flex-direction:column;text-align:center}
+.price.feat{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.price.feat .per,.price.feat li{color:rgba(245,241,234,.72)}
+.price.feat li::before{color:var(--brass)}
+.price h3{font-size:1.6rem;margin-bottom:8px}
+.price .amt{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:500;margin:8px 0 2px}
+.price .per{color:var(--muted);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:26px}
+.price ul{list-style:none;text-align:left;display:flex;flex-direction:column;gap:13px;margin-bottom:32px}
+.price li{font-size:.95rem;color:var(--muted);padding-left:26px;position:relative;font-weight:300}
+.price li::before{content:"—";position:absolute;left:0;color:var(--olive)}
+.price .btn{margin-top:auto}
+@media(max-width:780px){.prices{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+
+/* ---- FAQ ---- */
+.faq{max-width:760px;margin:56px auto 0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:26px 0;font-size:1.2rem;font-family:'Cormorant Garamond',serif;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--brass);font-weight:300}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);padding:0 0 26px;font-size:1rem}
+
+/* ---- CTA / contact ---- */
+.cta{background:var(--olive);color:var(--ivory);text-align:center;padding:96px 24px}
+.cta h2{color:var(--ivory);max-width:18ch;margin:0 auto .4em}
+.cta p{color:rgba(245,241,234,.85);max-width:480px;margin:0 auto 34px}
+.cta .btn{background:var(--ivory);color:var(--olive-deep)}
+.cta .btn:hover{background:#fff}
+.contact{text-align:center;padding:72px 24px;background:var(--paper)}
+.contact .row{display:flex;gap:44px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:.95rem;margin-top:8px}
+.contact .row a{color:var(--olive-deep);border-bottom:1px solid var(--line)}
+.mapbox{max-width:880px;margin:48px auto 0;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.mapbox iframe{width:100%;height:340px;border:0;display:block}
+
+/* ---- Footer ---- */
+footer{background:var(--ink);color:rgba(245,241,234,.6);text-align:center;padding:54px 24px;font-size:.86rem}
+footer .logo{display:inline-block;color:var(--ivory);margin-bottom:10px}
+footer .small{font-size:.78rem;opacity:.6;margin-top:8px}
+
+/* ---- UPI pay button on price cards ---- */
+.btn-pay{display:inline-block;margin-top:12px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .2s,border-color .2s}
+.btn-pay:hover{color:var(--olive-deep);border-color:var(--olive)}
+.price.feat .btn-pay{color:rgba(245,241,234,.75);border-color:rgba(245,241,234,.3)}
+.price.feat .btn-pay:hover{color:var(--ivory);border-color:var(--brass)}
+
+/* ---- UPI block in contact ---- */
+.upi{margin-top:52px;padding:40px;background:var(--ivory);border:1px solid var(--line);border-radius:3px;max-width:440px;margin-left:auto;margin-right:auto}
+.upi-id{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--olive-deep);margin-bottom:20px;letter-spacing:.02em}
+.upi-note{color:var(--muted);font-size:.82rem;margin-top:16px;font-weight:300}
+
+/* ---- Floating WhatsApp join button ---- */
+#floatJoin{display:none}
+#floatJoin.show{
+  display:flex;align-items:center;gap:10px;
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  background:#25623f;color:#fff;
+  padding:13px 20px 13px 16px;border-radius:999px;
+  font-family:'Jost',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  box-shadow:0 12px 32px rgba(20,50,30,.32);
+  transition:transform .25s,box-shadow .25s;
+}
+#floatJoin.show:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(20,50,30,.42)}
+#floatJoin svg{flex:none}
+@media(max-width:520px){#floatJoin.show span{display:none}#floatJoin.show{padding:15px;border-radius:50%}}
+
+/* ---- Gentle reveal on scroll ---- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
