@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Edit your site · Antara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="login">
+  <div class="login-card">
+    <h1>Antara</h1>
+    <p class="sub">Edit your website</p>
+    <form id="loginForm">
+      <input type="password" id="pw" placeholder="Password" autocomplete="current-password" required />
+      <button type="submit" id="loginBtn">Enter</button>
+      <p class="msg" id="loginMsg"></p>
+    </form>
+  </div>
+</div>
+
+<!-- EDITOR -->
+<div id="editor" class="editor" hidden>
+  <header class="bar">
+    <div class="bar-in">
+      <span class="brand">Antara · editor</span>
+      <div class="bar-actions">
+        <a id="previewLink" href="/" target="_blank" rel="noopener" class="ghost">View site ↗</a>
+        <button id="publishBtn" class="primary">Publish changes</button>
+      </div>
+    </div>
+    <p class="bar-status" id="status"></p>
+  </header>
+
+  <main class="sheet" id="sheet"><!-- built by admin.js --></main>
+
+  <footer class="foot">
+    <button id="publishBtn2" class="primary wide">Publish changes</button>
+    <p class="foot-note">Changes go live about 30 seconds after you publish.</p>
+  </footer>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

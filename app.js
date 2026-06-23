@@ -1,10 +1,25 @@
 /* =========================================================
    Antara — renderer. You do not need to edit this file.
-   It reads everything from content.js and builds the page.
+   It reads everything from content.json and builds the page.
+   To change words, prices, photos or which panels show,
+   use the editor at  /admin  (see HELPER-GUIDE.md).
    ========================================================= */
-(function () {
-  const S = window.SITE;
+(async function () {
+  let S;
+  try {
+    const res = await fetch("content.json", { cache: "no-store" });
+    S = await res.json();
+  } catch (e) {
+    document.body.innerHTML =
+      '<p style="font-family:sans-serif;padding:40px;text-align:center">Could not load the site content. Please refresh.</p>';
+    return;
+  }
+
   const $ = (id) => document.getElementById(id);
+  const V = S.visibility || {};
+  /* Hide a whole <section> when its toggle is off */
+  const hide = (id) => { const el = $(id); if (el) el.style.display = "none"; };
+
   const wa = (msg) =>
     `https://wa.me/${S.whatsapp}?text=${encodeURIComponent(msg || "Hello, I would like to book a yoga class.")}`;
   const amount = (s) => String(s).replace(/[^\d.]/g, "");
@@ -12,7 +27,7 @@
     `upi://pay?pa=${encodeURIComponent(S.upiId)}&pn=${encodeURIComponent(S.upiName || S.studioName)}` +
     (amt ? `&am=${amount(amt)}` : "") + `&cu=INR&tn=${encodeURIComponent(note || "Antara Yoga")}`;
   const hasUpi = S.upiId && S.upiId.trim() !== "";
-  const img = (src, alt, cls) =>
+  const img = (src, alt) =>
     `<img src="${src}" alt="${alt || ""}" loading="lazy" onerror="this.style.opacity=0">`;
 
   /* Page + meta */
@@ -34,52 +49,84 @@
   $("heroBtn").href = wa();
 
   /* Philosophy */
-  $("philIntro").textContent = S.philosophy.intro;
-  $("pillars").innerHTML = S.philosophy.pillars
-    .map((p, i) => `
-      <div class="pillar reveal">
-        <div class="num">0${i + 1}</div>
-        <h3>${p.title}</h3>
-        <p>${p.line}</p>
-      </div>`).join("");
+  if (V.philosophy === false) {
+    hide("philosophy");
+  } else {
+    $("philIntro").textContent = S.philosophy.intro;
+    $("pillars").innerHTML = S.philosophy.pillars
+      .map((p, i) => `
+        <div class="pillar reveal">
+          <div class="num">0${i + 1}</div>
+          <h3>${p.title}</h3>
+          <p>${p.line}</p>
+        </div>`).join("");
+  }
 
   /* Classes */
-  $("classGrid").innerHTML = S.classes
-    .map((c) => `<div class="cell reveal"><h3>${c.name}</h3><p>${c.desc}</p></div>`).join("");
+  if (V.classes === false) {
+    hide("classes");
+  } else {
+    $("classGrid").innerHTML = S.classes
+      .map((c) => `<div class="cell reveal"><h3>${c.name}</h3><p>${c.desc}</p></div>`).join("");
+  }
 
   /* Gallery */
-  $("galleryGrid").innerHTML = S.gallery.map((src) => img(src, "Studio")).join("");
+  if (V.gallery === false || !S.gallery || !S.gallery.length) {
+    hide("gallery");
+  } else {
+    $("galleryGrid").innerHTML = S.gallery.map((src) => img(src, "Studio")).join("");
+  }
 
   /* Schedule */
-  $("schedList").innerHTML = S.schedule
-    .map((s) => `<div class="row"><span class="day">${s.day}</span><span class="slots">${s.slots}</span></div>`).join("");
+  if (V.schedule === false) {
+    hide("schedule");
+  } else {
+    $("schedList").innerHTML = S.schedule
+      .map((s) => `<div class="row"><span class="day">${s.day}</span><span class="slots">${s.slots}</span></div>`).join("");
+  }
 
   /* About */
-  $("instPhoto").innerHTML = img(S.instructor.photo, S.instructor.name);
-  $("instName").textContent = S.instructor.name;
-  $("instRole").textContent = S.instructor.role;
-  $("instBio").textContent = S.instructor.bio;
+  if (V.about === false) {
+    hide("about");
+  } else {
+    $("instPhoto").innerHTML = img(S.instructor.photo, S.instructor.name);
+    $("instName").textContent = S.instructor.name;
+    $("instRole").textContent = S.instructor.role;
+    $("instBio").textContent = S.instructor.bio;
+  }
 
   /* Testimonials */
-  $("quoteGrid").innerHTML = S.testimonials
-    .map((t) => `<div class="quote reveal"><p>“${t.quote}”</p><div class="who">${t.name}</div></div>`).join("");
+  if (V.testimonials === false || !S.testimonials || !S.testimonials.length) {
+    hide("testimonials");
+  } else {
+    $("quoteGrid").innerHTML = S.testimonials
+      .map((t) => `<div class="quote reveal"><p>“${t.quote}”</p><div class="who">${t.name}</div></div>`).join("");
+  }
 
   /* Pricing */
-  $("priceGrid").innerHTML = S.pricing
-    .map((p) => `
-      <div class="price ${p.featured ? "feat" : ""} reveal">
-        <h3>${p.name}</h3>
-        <div class="amt">${S.currency}${p.price}</div>
-        <div class="per">${p.period}</div>
-        <ul>${p.features.map((f) => `<li>${f}</li>`).join("")}</ul>
-        <a class="btn ${p.featured ? "" : "btn-line"}" target="_blank" rel="noopener"
-           href="${wa("Hello, I would like to enquire about the " + p.name + " membership.")}">Enquire</a>
-        ${hasUpi ? `<a class="btn-pay" href="${upi(p.price, S.studioName + " · " + p.name)}">Pay ${S.currency}${p.price} via UPI</a>` : ""}
-      </div>`).join("");
+  if (V.pricing === false) {
+    hide("pricing");
+  } else {
+    $("priceGrid").innerHTML = S.pricing
+      .map((p) => `
+        <div class="price ${p.featured ? "feat" : ""} reveal">
+          <h3>${p.name}</h3>
+          <div class="amt">${S.currency}${p.price}</div>
+          <div class="per">${p.period}</div>
+          <ul>${p.features.map((f) => `<li>${f}</li>`).join("")}</ul>
+          <a class="btn ${p.featured ? "" : "btn-line"}" target="_blank" rel="noopener"
+             href="${wa("Hello, I would like to enquire about the " + p.name + " membership.")}">Enquire</a>
+          ${hasUpi ? `<a class="btn-pay" href="${upi(p.price, S.studioName + " · " + p.name)}">Pay ${S.currency}${p.price} via UPI</a>` : ""}
+        </div>`).join("");
+  }
 
   /* FAQ */
-  $("faqList").innerHTML = S.faq
-    .map((f) => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("");
+  if (V.faq === false || !S.faq || !S.faq.length) {
+    hide("faq");
+  } else {
+    $("faqList").innerHTML = S.faq
+      .map((f) => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("");
+  }
 
   /* CTA + contact */
   $("ctaBtn").textContent = "Book on WhatsApp";
@@ -103,7 +150,8 @@
        </div>`;
   }
 
-  if (S.mapEmbed && S.mapEmbed.trim() !== "") {
+  /* Map — shows only when toggled on AND an embed link is set */
+  if (V.map !== false && S.mapEmbed && S.mapEmbed.trim() !== "") {
     $("mapWrap").innerHTML = `<div class="mapbox"><iframe src="${S.mapEmbed}" loading="lazy"></iframe></div>`;
   }
 

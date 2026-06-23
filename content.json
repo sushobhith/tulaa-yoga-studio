@@ -1,0 +1,100 @@
+{
+  "studioName": "Antara",
+  "studioFull": "Antara — Yoga & Stillness",
+
+  "whatsapp": "919999999999",
+  "email": "hello@antara.studio",
+  "instagram": "antara.studio",
+  "address": "Block A, Greater Kailash II, New Delhi",
+  "addressLine2": "Also at Cantt Road, Meerut",
+
+  "upiId": "yourname@okhdfcbank",
+  "upiName": "Antara Yoga",
+
+  "visibility": {
+    "philosophy": true,
+    "classes": true,
+    "gallery": true,
+    "schedule": true,
+    "about": true,
+    "testimonials": true,
+    "pricing": true,
+    "faq": true,
+    "map": false
+  },
+
+  "joinButton": {
+    "show": true,
+    "label": "Join us"
+  },
+
+  "hero": {
+    "kicker": "Yoga · Breath · Stillness",
+    "headline": "Come home to your breath",
+    "subtext": "An intimate studio for unhurried practice. Small classes, considered teaching, and the quiet luxury of being truly looked after.",
+    "button": "Begin your practice",
+    "image": "assets/hero.jpg"
+  },
+
+  "philosophy": {
+    "intro": "We are not a gym. We are a small, considered space for people who want depth over noise. Come as you are.",
+    "pillars": [
+      { "title": "Breath", "line": "Every practice begins and ends with the breath. The rest follows." },
+      { "title": "Movement", "line": "Strong, slow, intentional. Movement that listens to your body, not the mirror." },
+      { "title": "Stillness", "line": "The hardest and most rewarding part. We make room for it." }
+    ]
+  },
+
+  "classes": [
+    { "name": "Hatha", "desc": "Slow and foundational. Alignment, breath and patience. Ideal if you are beginning." },
+    { "name": "Vinyasa", "desc": "A graceful flow linked to breath. Builds heat, strength and ease." },
+    { "name": "Yin", "desc": "Long, quiet holds that release what the week leaves behind." },
+    { "name": "Pranayama", "desc": "Breathwork and meditation. The inner practice, taught with care." }
+  ],
+
+  "schedule": [
+    { "day": "Monday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Vinyasa" },
+    { "day": "Tuesday", "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin" },
+    { "day": "Wednesday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Pranayama" },
+    { "day": "Thursday", "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin" },
+    { "day": "Friday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Restorative Yin" },
+    { "day": "Saturday", "slots": "8:00 AM  Vinyasa   ·   9:30 AM  Beginners" },
+    { "day": "Sunday", "slots": "By appointment · private sessions" }
+  ],
+
+  "instructor": {
+    "name": "Tara",
+    "role": "Founder & Lead Teacher",
+    "bio": "Trained across Hatha and Vinyasa traditions with over 500 hours of certification and a decade of personal practice. I founded Antara to offer the kind of space I always longed for: unhurried, intimate, and entirely focused on the person on the mat. I teach small groups so no one is ever just a face in the room.",
+    "photo": "assets/teacher.jpg"
+  },
+
+  "gallery": [
+    "assets/gallery-1.jpg",
+    "assets/gallery-2.jpg",
+    "assets/gallery-3.jpg",
+    "assets/gallery-4.jpg"
+  ],
+
+  "testimonials": [
+    { "quote": "The most refined yoga experience in Delhi. Small classes mean real attention, and the space itself is a sanctuary.", "name": "Naina K., Greater Kailash" },
+    { "quote": "I have practised in studios across London and Mumbai. Antara is in a class of its own. Unhurried and deeply personal.", "name": "Vikram S., Defence Colony" },
+    { "quote": "I drive in from Meerut twice a week and it is worth every minute. Tara teaches with rare attention.", "name": "Ritika A., Meerut" }
+  ],
+
+  "currency": "₹",
+  "pricing": [
+    { "name": "Drop-in", "price": "1,200", "period": "single class", "featured": false, "features": ["One class, any style", "No commitment", "A gentle way to begin"] },
+    { "name": "Monthly", "price": "8,500", "period": "per month", "featured": true, "features": ["Unlimited group classes", "All styles included", "Mat and props provided", "Priority booking"] },
+    { "name": "Private", "price": "3,500", "period": "per session", "featured": false, "features": ["One-to-one with Tara", "Tailored entirely to you", "At the studio or your home"] }
+  ],
+
+  "faq": [
+    { "q": "I have never practised before. Is that alright?", "a": "More than alright. Most of our students began with us. Start with any Hatha or Beginners class and we will guide you gently." },
+    { "q": "What should I bring?", "a": "Only comfortable clothing and water. Mats and props are provided, though you are welcome to bring your own." },
+    { "q": "How do I book?", "a": "Tap any booking button to message us on WhatsApp. We will confirm your place and answer anything you wish to ask." },
+    { "q": "Do you teach in Meerut as well?", "a": "Yes. We hold select sessions in Meerut each week. Message us for the current Meerut timetable." }
+  ],
+
+  "mapEmbed": ""
+}

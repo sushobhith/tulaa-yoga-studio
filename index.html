@@ -41,7 +41,7 @@
 </section>
 
 <!-- PHILOSOPHY -->
-<section class="philosophy center">
+<section class="philosophy center" id="philosophy">
   <div class="wrap">
     <p class="kicker">Our way</p>
     <p class="lede" id="philIntro" style="font-size:1.35rem;color:var(--ink);max-width:680px"></p>
@@ -59,7 +59,7 @@
 </section>
 
 <!-- GALLERY -->
-<section style="padding-top:0">
+<section id="gallery" style="padding-top:0">
   <div class="wrap">
     <div class="gallery toned" id="galleryGrid"></div>
   </div>
@@ -90,7 +90,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section style="background:var(--paper)">
+<section id="testimonials" style="background:var(--paper)">
   <div class="wrap">
     <p class="kicker center">In their words</p>
     <h2 class="center">From our students</h2>
@@ -108,7 +108,7 @@
 </section>
 
 <!-- FAQ -->
-<section style="background:var(--paper)">
+<section id="faq" style="background:var(--paper)">
   <div class="wrap">
     <p class="kicker center">Good to know</p>
     <h2 class="center">Questions, answered</h2>
@@ -145,8 +145,7 @@
   <div class="small">© 2026 · All rights reserved</div>
 </footer>
 
-<!-- content first, then the renderer -->
-<script src="content.js"></script>
+<!-- app.js fetches content.json and builds the page -->
 <script src="app.js"></script>
 </body>
 </html>
