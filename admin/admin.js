@@ -264,6 +264,7 @@
         ["testimonials", "Testimonials"],
         ["pricing", "Membership & pricing"],
         ["faq", "FAQ"],
+        ["upi", "UPI payment buttons (needs a UPI ID below)"],
         ["map", "Map (needs a map link below)"],
       ];
       panels.forEach(([k, label]) => b.appendChild(toggleRow(label, null, V, k)));

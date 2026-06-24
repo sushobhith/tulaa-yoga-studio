@@ -27,6 +27,7 @@
     `upi://pay?pa=${encodeURIComponent(S.upiId)}&pn=${encodeURIComponent(S.upiName || S.studioName)}` +
     (amt ? `&am=${amount(amt)}` : "") + `&cu=INR&tn=${encodeURIComponent(note || "Antara Yoga")}`;
   const hasUpi = S.upiId && S.upiId.trim() !== "";
+  const showUpi = V.upi !== false && hasUpi; // toggle off OR no UPI id hides all pay buttons
   const img = (src, alt) =>
     `<img src="${src}" alt="${alt || ""}" loading="lazy" onerror="this.style.opacity=0">`;
 
@@ -116,7 +117,7 @@
           <ul>${p.features.map((f) => `<li>${f}</li>`).join("")}</ul>
           <a class="btn ${p.featured ? "" : "btn-line"}" target="_blank" rel="noopener"
              href="${wa("Hello, I would like to enquire about the " + p.name + " membership.")}">Enquire</a>
-          ${hasUpi ? `<a class="btn-pay" href="${upi(p.price, S.studioName + " · " + p.name)}">Pay ${S.currency}${p.price} via UPI</a>` : ""}
+          ${showUpi ? `<a class="btn-pay" href="${upi(p.price, S.studioName + " · " + p.name)}">Pay ${S.currency}${p.price} via UPI</a>` : ""}
         </div>`).join("");
   }
 
@@ -140,7 +141,7 @@
   $("footAddr").textContent = `${S.address}${addr2}`;
 
   /* UPI pay block */
-  if (hasUpi) {
+  if (showUpi) {
     $("upiWrap").innerHTML =
       `<div class="upi">
          <p class="kicker" style="margin-bottom:14px">Pay by UPI</p>

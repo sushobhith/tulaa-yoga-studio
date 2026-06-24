@@ -17,6 +17,7 @@
     "testimonials": true,
     "pricing": true,
     "faq": true,
+    "upi": true,
     "map": true
   },
   "joinButton": {
