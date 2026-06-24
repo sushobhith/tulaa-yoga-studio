@@ -172,6 +172,23 @@
        <span>${S.joinButton.label || "Join us"}</span>`;
   }
 
+  /* Build the nav from the sections that are actually visible */
+  const navItems = [
+    ["philosophy", "Our way"],
+    ["classes", "Classes"],
+    ["gallery", "Gallery"],
+    ["schedule", "Schedule"],
+    ["about", "About"],
+    ["testimonials", "Reviews"],
+    ["pricing", "Membership"],
+    ["faq", "FAQ"],
+  ];
+  const navHtml = navItems
+    .filter(([id]) => { const s = $(id); return s && s.style.display !== "none"; })
+    .map(([id, label]) => `<a href="#${id}">${label}</a>`)
+    .join("");
+  $("navLinks").innerHTML = navHtml + `<a href="#contact" class="btn book">Book</a>`;
+
   /* Mobile nav */
   const links = $("navLinks");
   $("navToggle").addEventListener("click", () => links.classList.toggle("open"));
