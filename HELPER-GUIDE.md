@@ -51,9 +51,14 @@ page — Classes, Schedule, Gallery, Testimonials, Pricing, FAQ, the Map, and mo
    phone or computer.
 3. You'll see the new photo straight away. Press **Publish** to make it live.
 
-The site automatically shrinks large photos for you, so you don't need to resize anything.
-Use a **wide** photo for the hero, and **upright** photos for the teacher and gallery for the
-best look.
+**Which photos work:** JPG, PNG or WebP only. iPhone "HEIC" photos usually fail. If a photo is
+rejected, open it on your phone, tap **Share**, save or send it as **JPEG**, then upload that.
+Very small photos are rejected too (they look blurry). Everything else is shrunk for you
+automatically, so you never need to resize. Each picker explains this, and tells you in red if a
+photo can't be used.
+
+Use a **wide** photo for the hero (the big home-page image), and **upright** photos for the
+teacher and gallery for the best look.
 
 ---
 

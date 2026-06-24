@@ -96,6 +96,7 @@ a{color:var(--olive-deep)}
 .filebtn{display:inline-block;padding:9px 15px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:.9rem}
 .filebtn:hover{background:var(--sand)}
 .imgfield input[type=file]{display:none}
+.img-err{margin-top:10px;padding:10px 12px;border:1px solid #e7c6bf;background:#f8ece9;border-radius:9px;color:var(--danger);font-size:.86rem;line-height:1.5}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:6px}
 .gallery-cell{position:relative}
 .gallery-cell .thumb{max-width:none;margin-bottom:0}

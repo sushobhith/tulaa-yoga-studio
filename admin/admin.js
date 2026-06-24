@@ -108,26 +108,38 @@
     const f = el("div", "field");
     f.appendChild(el("label", null, label));
     if (help) f.appendChild(el("p", "help", help));
+    f.appendChild(el("p", "help", IMG_RULES));
+    const errEl = el("p", "img-err");
+    errEl.style.display = "none";
     const box = el("div", "imgfield");
     const thumb = el("img", "thumb");
     setThumb(thumb, obj[key]);
     const labelBtn = el("label", "filebtn", "Choose a photo");
     const file = el("input");
     file.type = "file";
-    file.accept = "image/*";
+    file.accept = "image/jpeg,image/png,image/webp";
     file.addEventListener("change", async () => {
       const fobj = file.files[0];
       if (!fobj) return;
-      const { path, dataUrl } = await processImage(fobj);
-      uploads.set(path, dataUrl);
-      obj[key] = path;
-      thumb.src = dataUrl;
-      thumb.classList.remove("empty");
+      errEl.style.display = "none"; errEl.textContent = "";
+      try {
+        const { path, dataUrl } = await processImage(fobj);
+        uploads.set(path, dataUrl);
+        obj[key] = path;
+        thumb.src = dataUrl;
+        thumb.classList.remove("empty");
+      } catch (e) {
+        errEl.textContent = e.message;
+        errEl.style.display = "block";
+      } finally {
+        file.value = ""; // allow re-picking the same file after a fix
+      }
     });
     labelBtn.appendChild(file);
     box.appendChild(thumb);
     box.appendChild(labelBtn);
     f.appendChild(box);
+    f.appendChild(errEl);
     return f;
   }
 
@@ -201,13 +213,34 @@
     return f;
   }
 
-  /* ---------------- IMAGE PROCESSING (downscale in the browser) ---------------- */
+  /* ---------------- IMAGE PROCESSING (validate + downscale in the browser) ---------------- */
+  // Plain-English rules shown under every photo picker.
+  const IMG_RULES =
+    "Photos only: JPG, PNG or WebP. iPhone “HEIC” photos usually fail — open the photo, " +
+    "tap Share and save or send it as JPEG, then upload that. Large photos are shrunk for " +
+    "you automatically; use a sharp photo at least 1200px wide for the best result.";
+  const MAX_RAW_BYTES = 25 * 1024 * 1024; // 25 MB raw before downscaling
+
   function processImage(file) {
     return new Promise((resolve, reject) => {
+      const name = file.name || "photo";
+      const isHeic = /heic|heif/i.test(file.type) || /\.(heic|heif)$/i.test(name);
+      if (isHeic) {
+        return reject(new Error("iPhone “HEIC” photos are not supported. On your phone, open the photo, tap Share, and save or send it as JPEG. Then upload that file."));
+      }
+      if (!/^image\/(jpeg|jpg|png|webp)$/i.test(file.type)) {
+        return reject(new Error("That file is not a supported photo. Please choose a JPG, PNG or WebP image."));
+      }
+      if (file.size > MAX_RAW_BYTES) {
+        return reject(new Error("That photo is very large (over 25 MB). Please use a smaller one."));
+      }
       const reader = new FileReader();
       reader.onload = () => {
         const img = new Image();
         img.onload = () => {
+          if (img.width < 500 || img.height < 350) {
+            return reject(new Error(`That photo is too small (${img.width}×${img.height}px) and will look blurry. Please use one at least 1200px wide.`));
+          }
           const MAX = 1600;
           let { width, height } = img;
           if (width > MAX || height > MAX) {
@@ -219,14 +252,14 @@
           canvas.width = width; canvas.height = height;
           canvas.getContext("2d").drawImage(img, 0, 0, width, height);
           const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
-          const safe = file.name.toLowerCase().replace(/\.[^.]+$/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "photo";
+          const safe = name.toLowerCase().replace(/\.[^.]+$/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "photo";
           const path = `assets/uploads/${safe}-${Date.now()}.jpg`;
           resolve({ path, dataUrl });
         };
-        img.onerror = reject;
+        img.onerror = () => reject(new Error("That image could not be opened. It may be damaged or an unsupported type. Please try a different JPG or PNG photo."));
         img.src = reader.result;
       };
-      reader.onerror = reject;
+      reader.onerror = () => reject(new Error("That file could not be read. Please try again."));
       reader.readAsDataURL(file);
     });
   }
@@ -305,7 +338,7 @@
       b.appendChild(textField("Headline", h, "headline"));
       b.appendChild(textField("Subtext", h, "subtext", { area: true }));
       b.appendChild(textField("Button text", h, "button"));
-      b.appendChild(imageField("Background photo", h, "image"));
+      b.appendChild(imageField("Background photo", h, "image", "A wide, landscape photo works best here (it fills the screen)."));
     }));
 
     // 7. Philosophy
@@ -355,7 +388,7 @@
       b.appendChild(textField("Name", t, "name"));
       b.appendChild(textField("Role", t, "role"));
       b.appendChild(textField("Bio", t, "bio", { area: true }));
-      b.appendChild(imageField("Photo", t, "photo"));
+      b.appendChild(imageField("Photo", t, "photo", "An upright, portrait photo works best here."));
     }));
 
     // 11. Gallery
@@ -375,20 +408,30 @@
       }
       drawGallery();
       b.appendChild(grid);
+      b.appendChild(el("p", "help", IMG_RULES));
+      const galErr = el("p", "img-err"); galErr.style.display = "none";
       const addLbl = el("label", "filebtn", "+ Add photo");
-      const file = el("input"); file.type = "file"; file.accept = "image/*";
+      const file = el("input"); file.type = "file"; file.accept = "image/jpeg,image/png,image/webp";
       file.addEventListener("change", async () => {
         const fobj = file.files[0];
         if (!fobj) return;
-        const { path, dataUrl } = await processImage(fobj);
-        uploads.set(path, dataUrl);
-        data.gallery.push(path);
-        file.value = "";
-        drawGallery();
+        galErr.style.display = "none"; galErr.textContent = "";
+        try {
+          const { path, dataUrl } = await processImage(fobj);
+          uploads.set(path, dataUrl);
+          data.gallery.push(path);
+          drawGallery();
+        } catch (e) {
+          galErr.textContent = e.message;
+          galErr.style.display = "block";
+        } finally {
+          file.value = "";
+        }
       });
       addLbl.appendChild(file);
       const wrap = el("div", "field"); wrap.appendChild(addLbl);
       b.appendChild(wrap);
+      b.appendChild(galErr);
     }));
 
     // 12. Testimonials
