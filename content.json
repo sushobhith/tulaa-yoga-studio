@@ -1,16 +1,13 @@
 {
   "studioName": "Tulaa Wellness",
   "studioFull": "Tulaa Wellness — Yoga Studio",
-
   "whatsapp": "919999999999",
   "email": "hello@tulaawellness.in",
   "instagram": "tulaa.wellness",
   "address": "Modipuram, Meerut, Uttar Pradesh 250110",
   "addressLine2": "",
-
   "upiId": "yourname@okhdfcbank",
   "upiName": "Tulaa Wellness",
-
   "visibility": {
     "philosophy": true,
     "classes": true,
@@ -19,15 +16,13 @@
     "about": true,
     "testimonials": true,
     "pricing": true,
-    "faq": true,
+    "faq": false,
     "map": true
   },
-
   "joinButton": {
     "show": true,
     "label": "Join us"
   },
-
   "hero": {
     "kicker": "Yoga · Breath · Stillness",
     "headline": "Come home to your breath",
@@ -35,66 +30,151 @@
     "button": "Begin your practice",
     "image": "assets/hero.jpg"
   },
-
   "philosophy": {
     "intro": "We are not a gym. We are a small, considered space for people who want depth over noise. Come as you are.",
     "pillars": [
-      { "title": "Breath", "line": "Every practice begins and ends with the breath. The rest follows." },
-      { "title": "Movement", "line": "Strong, slow, intentional. Movement that listens to your body, not the mirror." },
-      { "title": "Stillness", "line": "The hardest and most rewarding part. We make room for it." }
+      {
+        "title": "Breath",
+        "line": "Every practice begins and ends with the breath. The rest follows."
+      },
+      {
+        "title": "Movement",
+        "line": "Strong, slow, intentional. Movement that listens to your body, not the mirror."
+      },
+      {
+        "title": "Stillness",
+        "line": "The hardest and most rewarding part. We make room for it."
+      }
     ]
   },
-
   "classes": [
-    { "name": "Hatha", "desc": "Slow and foundational. Alignment, breath and patience. Ideal if you are beginning." },
-    { "name": "Vinyasa", "desc": "A graceful flow linked to breath. Builds heat, strength and ease." },
-    { "name": "Yin", "desc": "Long, quiet holds that release what the week leaves behind." },
-    { "name": "Pranayama", "desc": "Breathwork and meditation. The inner practice, taught with care." }
+    {
+      "name": "Hatha",
+      "desc": "Slow and foundational. Alignment, breath and patience. Ideal if you are beginning."
+    },
+    {
+      "name": "Vinyasa",
+      "desc": "A graceful flow linked to breath. Builds heat, strength and ease."
+    },
+    {
+      "name": "Yin",
+      "desc": "Long, quiet holds that release what the week leaves behind."
+    },
+    {
+      "name": "Pranayama",
+      "desc": "Breathwork and meditation. The inner practice, taught with care."
+    }
   ],
-
   "schedule": [
-    { "day": "Monday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Vinyasa" },
-    { "day": "Tuesday", "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin" },
-    { "day": "Wednesday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Pranayama" },
-    { "day": "Thursday", "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin" },
-    { "day": "Friday", "slots": "7:00 AM  Hatha   ·   6:30 PM  Restorative Yin" },
-    { "day": "Saturday", "slots": "8:00 AM  Vinyasa   ·   9:30 AM  Beginners" },
-    { "day": "Sunday", "slots": "By appointment · private sessions" }
+    {
+      "day": "Monday",
+      "slots": "7:00 AM  Hatha   ·   6:30 PM  Vinyasa"
+    },
+    {
+      "day": "Tuesday",
+      "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin"
+    },
+    {
+      "day": "Wednesday",
+      "slots": "7:00 AM  Hatha   ·   6:30 PM  Pranayama"
+    },
+    {
+      "day": "Thursday",
+      "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin"
+    },
+    {
+      "day": "Friday",
+      "slots": "7:00 AM  Hatha   ·   6:30 PM  Restorative Yin"
+    },
+    {
+      "day": "Saturday",
+      "slots": "8:00 AM  Vinyasa   ·   9:30 AM  Beginners"
+    },
+    {
+      "day": "Sunday",
+      "slots": "By appointment · private sessions"
+    }
   ],
-
   "instructor": {
     "name": "Tara",
     "role": "Founder & Lead Teacher",
     "bio": "Trained across Hatha and Vinyasa traditions with over 500 hours of certification and a decade of personal practice. I founded Tulaa Wellness to offer the kind of space I always longed for: unhurried, intimate, and entirely focused on the person on the mat. I teach small groups so no one is ever just a face in the room.",
     "photo": "assets/teacher.jpg"
   },
-
   "gallery": [
     "assets/gallery-1.jpg",
     "assets/gallery-2.jpg",
     "assets/gallery-3.jpg",
     "assets/gallery-4.jpg"
   ],
-
   "testimonials": [
-    { "quote": "The most refined yoga experience in Meerut. Small classes mean real attention, and the space itself is a sanctuary.", "name": "Naina K., Meerut" },
-    { "quote": "I have practised in studios across London and Mumbai. Tulaa Wellness is in a class of its own. Unhurried and deeply personal.", "name": "Vikram S., Meerut" },
-    { "quote": "Years of practice and this is the most personal studio I have found. The teaching has rare attention. Worth every minute.", "name": "Ritika A., Modipuram" }
+    {
+      "quote": "The most refined yoga experience in Meerut. Small classes mean real attention, and the space itself is a sanctuary.",
+      "name": "Naina K., Meerut"
+    },
+    {
+      "quote": "I have practised in studios across London and Mumbai. Tulaa Wellness is in a class of its own. Unhurried and deeply personal.",
+      "name": "Vikram S., Meerut"
+    },
+    {
+      "quote": "Years of practice and this is the most personal studio I have found. The teaching has rare attention. Worth every minute.",
+      "name": "Ritika A., Modipuram"
+    }
   ],
-
   "currency": "₹",
   "pricing": [
-    { "name": "Drop-in", "price": "1,200", "period": "single class", "featured": false, "features": ["One class, any style", "No commitment", "A gentle way to begin"] },
-    { "name": "Monthly", "price": "8,500", "period": "per month", "featured": true, "features": ["Unlimited group classes", "All styles included", "Mat and props provided", "Priority booking"] },
-    { "name": "Private", "price": "3,500", "period": "per session", "featured": false, "features": ["One-to-one teaching", "Tailored entirely to you", "At the studio or your home"] }
+    {
+      "name": "Drop-in",
+      "price": "1,200",
+      "period": "single class",
+      "featured": false,
+      "features": [
+        "One class, any style",
+        "No commitment",
+        "A gentle way to begin"
+      ]
+    },
+    {
+      "name": "Monthly",
+      "price": "8,500",
+      "period": "per month",
+      "featured": true,
+      "features": [
+        "Unlimited group classes",
+        "All styles included",
+        "Mat and props provided",
+        "Priority booking"
+      ]
+    },
+    {
+      "name": "Private",
+      "price": "3,500",
+      "period": "per session",
+      "featured": false,
+      "features": [
+        "One-to-one teaching",
+        "Tailored entirely to you",
+        "At the studio or your home"
+      ]
+    }
   ],
-
   "faq": [
-    { "q": "I have never practised before. Is that alright?", "a": "More than alright. Most of our students began with us. Start with any Hatha or Beginners class and we will guide you gently." },
-    { "q": "What should I bring?", "a": "Only comfortable clothing and water. Mats and props are provided, though you are welcome to bring your own." },
-    { "q": "How do I book?", "a": "Tap any booking button to message us on WhatsApp. We will confirm your place and answer anything you wish to ask." },
-    { "q": "Where are you located?", "a": "We are in Modipuram, Meerut. Tap the map below for directions, or message us and we will share the easiest way to reach us." }
+    {
+      "q": "I have never practised before. Is that alright?",
+      "a": "More than alright. Most of our students began with us. Start with any Hatha or Beginners class and we will guide you gently."
+    },
+    {
+      "q": "What should I bring?",
+      "a": "Only comfortable clothing and water. Mats and props are provided, though you are welcome to bring your own."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Tap any booking button to message us on WhatsApp. We will confirm your place and answer anything you wish to ask."
+    },
+    {
+      "q": "Where are you located?",
+      "a": "We are in Modipuram, Meerut. Tap the map below for directions, or message us and we will share the easiest way to reach us."
+    }
   ],
-
   "mapEmbed": "https://www.google.com/maps?q=29.0565797,77.7086214&z=16&output=embed"
 }
