@@ -17,6 +17,12 @@
 
   const $ = (id) => document.getElementById(id);
   const V = S.visibility || {};
+
+  /* Apply the chosen colour palette (overrides the CSS variables) */
+  const TH = window.THEMES && (window.THEMES[S.theme] || window.THEMES.sage);
+  if (TH && TH.vars) {
+    for (const [k, v] of Object.entries(TH.vars)) document.documentElement.style.setProperty(k, v);
+  }
   /* Hide a whole <section> when its toggle is off */
   const hide = (id) => { const el = $(id); if (el) el.style.display = "none"; };
 

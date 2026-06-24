@@ -303,6 +303,28 @@
       panels.forEach(([k, label]) => b.appendChild(toggleRow(label, null, V, k)));
     }));
 
+    // 1b. Theme (colour palette)
+    sheet.appendChild(group("Theme (colours)", "Pick a colour palette for the whole site", (b) => {
+      const THEMES = window.THEMES || {};
+      if (!data.theme || !THEMES[data.theme]) data.theme = "sage";
+      const grid = el("div", "theme-grid");
+      function draw() {
+        grid.innerHTML = "";
+        Object.entries(THEMES).forEach(([key, t]) => {
+          const card = el("div", "theme-card" + (data.theme === key ? " sel" : ""));
+          const sw = el("div", "swatches");
+          (t.swatch || []).forEach((c) => { const s = el("span", "sw"); s.style.background = c; sw.appendChild(s); });
+          card.appendChild(sw);
+          card.appendChild(el("div", "theme-name", t.label || key));
+          card.addEventListener("click", () => { data.theme = key; draw(); });
+          grid.appendChild(card);
+        });
+      }
+      draw();
+      b.appendChild(grid);
+      b.appendChild(el("p", "help", "The colours change across the whole site when you Publish. Use “View site” to see them."));
+    }));
+
     // 2. Basics
     sheet.appendChild(group("Studio name", "Shown top-left and in the footer", (b) => {
       b.appendChild(textField("Short name", data, "studioName"));

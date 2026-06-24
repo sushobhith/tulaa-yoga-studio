@@ -85,6 +85,15 @@ a{color:var(--olive-deep)}
 .addbtn{margin-top:14px;padding:11px 16px;border:1px dashed var(--brass);border-radius:10px;background:transparent;color:var(--olive-deep);font-size:.92rem;width:100%}
 .addbtn:hover{background:var(--sand)}
 
+/* theme palette picker */
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin-top:14px}
+.theme-card{border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;background:#fff;text-align:center;transition:border-color .15s,box-shadow .15s}
+.theme-card:hover{border-color:var(--brass)}
+.theme-card.sel{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive)}
+.swatches{display:flex;height:36px;border-radius:8px;overflow:hidden;margin-bottom:9px;border:1px solid var(--line)}
+.swatches .sw{flex:1}
+.theme-name{font-size:.9rem}
+
 /* string list (features) */
 .strrow{display:flex;gap:8px;margin-top:8px}
 .strrow input{flex:1}

@@ -44,6 +44,12 @@ page — Classes, Schedule, Gallery, Testimonials, Pricing, FAQ, the Map, and mo
 
 ---
 
+## Changing the colours
+
+Open the **Theme (colours)** panel and tap one of the palettes. The whole site changes colour
+when you Publish. There are a handful of ready-made palettes so it always looks intentional, and
+you can switch between them as often as you like.
+
 ## Changing photos
 
 1. Open the section with the photo (Hero, About the teacher, or Photo gallery).
