@@ -16,7 +16,7 @@
     "about": true,
     "testimonials": true,
     "pricing": true,
-    "faq": false,
+    "faq": true,
     "map": true
   },
   "joinButton": {
