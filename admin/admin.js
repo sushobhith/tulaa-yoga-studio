@@ -284,6 +284,8 @@
   function buildEditor() {
     const sheet = $("#sheet");
     sheet.innerHTML = "";
+    const brand = document.querySelector(".brand");
+    if (brand) brand.textContent = (data.studioName || "Site") + " · editor";
 
     // 1. Panels on/off
     sheet.appendChild(group("Show or hide panels", "Turn whole sections of the page on or off", (b) => {
