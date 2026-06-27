@@ -28,24 +28,24 @@
   "hero": {
     "kicker": "Yoga · Breath · Stillness",
     "headline": "Come home to your breath",
-    "subtext": "An intimate studio in Meerut for unhurried practice. Small classes, considered teaching, and the quiet luxury of being truly looked after.",
+    "subtext": "An intimate Yoga and Wellness studio in Meerut for unhurried practice. Small classes, considered teaching, and the quiet luxury of being truly looked after. ",
     "button": "Begin your practice",
     "image": "assets/hero.jpg"
   },
   "philosophy": {
-    "intro": "We are not a gym. We are a small, considered space for people who want depth over noise. Come as you are.",
+    "intro": "We are not a gym. We are a small, community- driven space for people who want depth over noise. Come as you are, leave more as yourself!",
     "pillars": [
       {
         "title": "Breath",
-        "line": "Every practice begins and ends with the breath. The rest follows."
+        "line": "Every practice begins and ends with the breath. The bridge between body and mind. Let's cultivate awareness, one breath at a time."
       },
       {
         "title": "Movement",
-        "line": "Strong, slow, intentional. Movement that listens to your body, not the mirror."
+        "line": "Strong, slow, intentional. Movement that listens to your body, not the mirror, because every posture is a conversation with your body."
       },
       {
         "title": "Stillness",
-        "line": "The hardest and most rewarding part. We make room for it."
+        "line": "The hardest and most rewarding part. A meditative space to pause, reflect, and simply be."
       }
     ]
   },
@@ -64,7 +64,11 @@
     },
     {
       "name": "Pranayama",
-      "desc": "Breathwork and meditation. The inner practice, taught with care."
+      "desc": "Preparatory and Advanced pranayama. The inner practice, taught with care and attention."
+    },
+    {
+      "name": "Meditation",
+      "desc": "The journey to inwards. Learn to stay detached while living in the chaotic world. The art of moving inwards."
     }
   ],
   "schedule": [
