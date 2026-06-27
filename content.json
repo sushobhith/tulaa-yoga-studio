@@ -85,32 +85,20 @@
   ],
   "schedule": [
     {
-      "day": "Monday",
-      "slots": "7:00 AM  Hatha   ·   6:30 PM  Vinyasa"
+      "day": "Monday to Friday",
+      "slots": "06:00 AM   ·   07:00 AM"
     },
     {
-      "day": "Tuesday",
-      "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin"
+      "day": "",
+      "slots": "07:00 AM   ·   08:00 AM"
     },
     {
-      "day": "Wednesday",
-      "slots": "7:00 AM  Hatha   ·   6:30 PM  Pranayama"
+      "day": "",
+      "slots": "08:00 AM   ·   09:00 AM"
     },
     {
-      "day": "Thursday",
-      "slots": "7:00 AM  Vinyasa   ·   6:30 PM  Yin"
-    },
-    {
-      "day": "Friday",
-      "slots": "7:00 AM  Hatha   ·   6:30 PM  Restorative Yin"
-    },
-    {
-      "day": "Saturday",
-      "slots": "8:00 AM  Vinyasa   ·   9:30 AM  Beginners"
-    },
-    {
-      "day": "Sunday",
-      "slots": "By appointment · private sessions"
+      "day": "",
+      "slots": "06:30 PM   ·   07:30 PM"
     }
   ],
   "instructor": {
