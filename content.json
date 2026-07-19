@@ -141,26 +141,38 @@
       "features": [
         "Breathwork, Asana & Meditation",
         "Mats & Props provided",
-        "Inclusive of 20% discount from the original price of Rs. 2,500",
+        "Founding Member Offer of 20% from the original price of Rs. 2,500",
         "Offer for limited time only"
       ]
     },
     {
-      "name": "Monthly",
-      "price": "8,500",
-      "period": "per month",
+      "name": "Quarterly",
+      "price": "5,500",
+      "period": "3 Months",
       "featured": true,
       "features": [
-        "Unlimited group classes",
-        "All styles included",
-        "Mat and props provided",
-        "Priority booking"
+        "Breathwork, Asana & Meditation",
+        "Mats & Props provided",
+        "Founding Member Offer of 21% from the original price of Rs. 7,000",
+        "Offer for limited time only"
+      ]
+    },
+    {
+      "name": "Half- Yearly",
+      "price": "10,500",
+      "period": "6 Months",
+      "featured": false,
+      "features": [
+        "Breathwork, Asana & Meditation",
+        "Mats & Props provided",
+        "Founding Member Offer of 22% from the original price of Rs. 13,500",
+        "Offer for limited time only"
       ]
     },
     {
       "name": "Private",
-      "price": "3,500",
-      "period": "per session",
+      "price": "10,000",
+      "period": "per month",
       "featured": false,
       "features": [
         "One-to-one teaching",
