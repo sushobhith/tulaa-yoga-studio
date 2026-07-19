@@ -85,20 +85,20 @@
   ],
   "schedule": [
     {
-      "day": "Monday to Friday   ",
-      "slots": "     06:00 AM ~ 07:00 AM"
+      "day": "Monday to Friday- ",
+      "slots": "06:00 AM ~ 07:00 AM; online & Offline batch"
     },
     {
-      "day": "Monday to Friday ",
-      "slots": "07:00 AM ~ 08:00 AM"
+      "day": "Monday to Friday- ",
+      "slots": "07:00 AM ~ 08:00 AM; Beginner- friendly batch"
     },
     {
-      "day": "Monday to Friday ",
-      "slots": "08:00 AM ~ 09:00 AM"
+      "day": "Monday to Friday- ",
+      "slots": "08:00 AM ~ 09:00 AM; Intermediate level batch"
     },
     {
-      "day": "Monday to Friday ",
-      "slots": "06:30 PM ~ 07:30 PM"
+      "day": "Monday to Friday- ",
+      "slots": "06:30 PM ~ 07:30 PM; female only batch"
     }
   ],
   "instructor": {
@@ -184,7 +184,7 @@
   "faq": [
     {
       "q": "I have never practised before. Is that alright?",
-      "a": "More than alright. Most of our students began with us. Start with any Hatha or Beginners class and we will guide you gently."
+      "a": "More than alright. Most of our students began with us. Start with any class and we will guide you gently."
     },
     {
       "q": "What should I bring?",
