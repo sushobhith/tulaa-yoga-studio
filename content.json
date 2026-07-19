@@ -134,14 +134,12 @@
   "currency": "₹",
   "pricing": [
     {
-      "name": "Drop-in",
-      "price": "1,200",
-      "period": "single class",
+      "name": "Monthly",
+      "price": "2,000",
+      "period": "5 classes a week",
       "featured": false,
       "features": [
-        "One class, any style",
-        "No commitment",
-        "A gentle way to begin"
+        ""
       ]
     },
     {
